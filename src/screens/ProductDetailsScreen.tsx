@@ -5,6 +5,7 @@ import { RootState } from '../redux/store';
 import { toggleFavorite, fetchProducts, loadFavorites } from '../redux/productSlice';
 import { RouteProp } from '@react-navigation/native';
 import { colors } from '../utills/color';
+import { responsiveFont } from '../utills/fontSize';
 
 type DetailsScreenRouteProp = RouteProp<{ params: { productId: string } }, 'params'>;
 
@@ -47,9 +48,9 @@ const ProductDetailsScreen = ({ route }: { route: DetailsScreenRouteProp }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, alignItems: 'center', padding: 20, backgroundColor: colors.Background },
   image: { width: '100%', height: 300, borderRadius: 8 },
-  name: { fontSize: 24, fontWeight: 'bold', marginTop: 20, color: colors.Text },
-  description: { fontSize: 16, textAlign: 'center', marginTop: 10, color: colors.Text },
-  price: { fontSize: 18, color: colors.Primary, marginTop: 10 },
+  name: { fontSize: responsiveFont(25), fontWeight: 'bold', marginTop: 20, color: colors.Text },
+  description: { fontSize: responsiveFont(16), textAlign: 'center', marginTop: 10, color: colors.Text },
+  price: { fontSize: responsiveFont(18), color: colors.Primary, marginTop: 10 },
   button: { backgroundColor: colors.Success, padding: 10, borderRadius: 8, marginTop: 20 },
   buttonText: { color: colors.white, fontWeight: 'bold' },
 });

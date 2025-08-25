@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../redux/store';
 import { removeFromCart, updateQuantity } from '../redux/productSlice';
 import {colors} from '../utills/color'
+import {responsiveFont} from '../utills/fontSize'
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   item: { flexDirection: 'row', justifyContent: 'space-between', padding: 10, backgroundColor: colors.white, marginBottom: 5 },
   remove: { color: colors.Error },
   quantity: { width: 50, borderWidth: 1, borderColor: colors.Grey, textAlign: 'center' },
-  total: { fontSize: 18, fontWeight: 'bold', textAlign: 'right', padding: 10 },
+  total: { fontSize: responsiveFont(18), fontWeight: 'bold', textAlign: 'right', padding: 10 },
 });
 
 export default CartScreen;

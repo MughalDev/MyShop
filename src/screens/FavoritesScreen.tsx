@@ -6,6 +6,7 @@ import { loadFavorites } from '../redux/productSlice';
 import ProductCard from '../components/ProductCard';
 import { StyleSheet } from 'react-native';
 import {colors} from '../utills/color'
+import { responsiveFont } from '../utills/fontSize';
 
 const FavoritesScreen = ({ navigation }: { navigation: any }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const FavoritesScreen = ({ navigation }: { navigation: any }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.Background },
-  message: { textAlign: 'center', marginTop: 20, color: colors.Text },
+  message: { textAlign: 'center', marginTop: 20, color: colors.Text, fontSize: responsiveFont(18) },
 });
 
 export default FavoritesScreen;

@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, useWindowDimensions } 
 import { Product } from '../utills/types';
 import ImagePlaceholder from 'react-native-image-placeholder';
 import { colors } from '../utills/color';
+import { responsiveFont } from '../utills/fontSize';
 
 interface ProductCardProps {
   product: Product;
@@ -84,16 +85,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   name: {
-    fontSize: 16,
+    fontSize: responsiveFont(16),
     fontWeight: 'bold',
     color: colors.Text,
   },
   price: {
-    fontSize: 14,
+    fontSize: responsiveFont(14),
     color: colors.Primary,
   },
   favorite: {
-    fontSize: 24,
+    fontSize: responsiveFont(20),
     marginTop: 10,
   },
   cartButton: {
