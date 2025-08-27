@@ -1,5 +1,6 @@
-import { productSlice, cartSlice, toggleFavorite, setFilterCategory, addToCart, removeFromCart, updateQuantity, initialProductState, initialCartState } from '../src/redux/productSlice'; // Adjust path
+import { productSlice, cartSlice, toggleFavorite, setFilterCategory, addToCart, removeFromCart, updateQuantity  } from '../src/redux/productSlice'; // Adjust path
 import { Product, CartItem } from '../src/utills/types';
+import {initialProductState, initialCartState} from '../src/utills/types'
 
 // Combine reducers for testing
 const reducer = (state: any, action: any) => ({
