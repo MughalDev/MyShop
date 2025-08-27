@@ -36,12 +36,12 @@ npx react-native run-ios
 # Run on Android
 npx react-native run-android
 
-# State Management: Redux Toolkit – Provides slices for products, favorites, and cart, with async thunks for API/persistence and middleware for saving. Chosen for structured state management.
-# Component Architecture: Reusable ProductCard component with memoization.
-# Data Persistence: AsyncStorage for favorites and cached products – Ensures offline access and cross-platform persistence.
-# Performance: React.memo for ProductCard, lazy-loaded images with placeholders.
-# Security: No sensitive data; API is public mock.
-# Testing: Unit tests for components and slice logic.
+ State Management: Redux Toolkit – Provides slices for products, favorites, and cart, with async thunks for API/persistence and middleware for saving. Chosen for structured state management.
+ Component Architecture: Reusable ProductCard component with memoization.
+ Data Persistence: AsyncStorage for favorites and cached products – Ensures offline access and cross-platform persistence.
+ Performance: React.memo for ProductCard, lazy-loaded images with placeholders.
+ Security: No sensitive data; API is public mock.
+ Testing: Unit tests for components and slice logic.
 
 Screenshots/GIFs
 (Attach your own screenshots here, e.g.:
