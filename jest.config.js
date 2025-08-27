@@ -6,8 +6,9 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.js$': 'babel-jest',
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'ios.js', 'android.js'], // Add platform-specific extensions
-  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node', 'ios.js', 'android.js'],
+  setupFiles: ['<rootDir>/setup.js'], // Use setupFiles to apply mock early
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'], // Keep for AsyncStorage mock
   transformIgnorePatterns: [
     '/node_modules/(?!react-native|react-native-.*)/',
   ],
