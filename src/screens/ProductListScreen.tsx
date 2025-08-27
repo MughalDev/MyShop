@@ -7,6 +7,7 @@ import {
   RefreshControl,
   useWindowDimensions,
   Image,
+  Platform,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
@@ -94,7 +95,7 @@ const ProductListScreen = ({ navigation }: { navigation: any }) => {
               style={{
                 width: scale(10),
                 height: scale(10),
-                marginTop: scale(20),
+                marginTop: Platform.OS === 'android' ? scale(20) : scale(5),
               }}
               tintColor={colors.Primary}
               resizeMode="contain"

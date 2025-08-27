@@ -10,6 +10,7 @@ import ProductDetailsScreen from '../screens/ProductDetailsScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import CartScreen from '../screens/CartScreen';
 import { Linking } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -34,7 +35,25 @@ const linking = {
 };
 
 const HomeTabs = () => (
-  <Tab.Navigator>
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      tabBarIcon: ({ color, size }) => {
+        let iconName = '';
+
+        if (route.name === 'List') {
+          iconName = 'pricetag-outline'; // Product
+        } else if (route.name === 'Cart') {
+          iconName = 'cart-outline'; // Cart
+        } else if (route.name === 'Favorites') {
+          iconName = 'heart-outline'; // Favorites
+        }
+
+        return <Ionicons name={iconName} size={size} color={color} />;
+      },
+      tabBarActiveTintColor: 'tomato',
+      tabBarInactiveTintColor: 'gray',
+    })}
+  >
     <Tab.Screen name="List" component={ProductListScreen} options={{ title: 'Products' }} />
     <Tab.Screen name="Cart" component={CartScreen} />
     <Tab.Screen name="Favorites" component={FavoritesScreen} />
@@ -50,7 +69,11 @@ const AppContent = () => {
     <NavigationContainer linking={linking}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
-        <Stack.Screen name="Details" component={ProductDetailsScreen} options={{ title: 'Product Details' }} />
+        <Stack.Screen
+          name="Details"
+          component={ProductDetailsScreen}
+          options={{ title: 'Product Details' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
