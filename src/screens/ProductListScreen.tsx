@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, FlatList, RefreshControl, useWindowDimensions } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  RefreshControl,
+  useWindowDimensions,
+  Image,
+} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
 import { fetchProducts, setFilterCategory, toggleFavorite } from '../redux/productSlice'; // Fixed import
@@ -7,7 +15,9 @@ import { addToCart } from '../redux/productSlice'; // Ensure correct import for 
 import ProductCard from '../components/ProductCard';
 import { StyleSheet } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import {colors} from '../utills/color'
+import { colors } from '../utills/color';
+import { pickerSelectStyles } from '../utills/pickerSelectStyles';
+import { scale, verticalScale } from '../utills/dimentions';
 
 const ProductListScreen = ({ navigation }: { navigation: any }) => {
   const dispatch = useDispatch();
@@ -49,21 +59,37 @@ const ProductListScreen = ({ navigation }: { navigation: any }) => {
         onChangeText={setSearch}
         accessibilityLabel="Search input"
       />
-      <RNPickerSelect
-        value={selectedCategory} // use `value` instead of selectedValue
-        onValueChange={(itemValue) => {
-          setSelectedCategory(itemValue);
-          dispatch(setFilterCategory(itemValue));
-        }}
-        items={categories.map((category) => ({
-          label: category,
-          value: category,
-        }))}
-        style={styles.picker}
-        placeholder={{ label: 'Select a category', value: null }}
-        useNativeAndroidPickerStyle={false} // optional, for styling on Android
-        accessibilityLabel="Select category"
-      />
+      <View style={styles.innerBar}>
+        <RNPickerSelect
+          value={selectedCategory} // use `value` instead of selectedValue
+          onValueChange={(itemValue) => {
+            setSelectedCategory(itemValue);
+            dispatch(setFilterCategory(itemValue));
+          }}
+          items={categories.map((category) => ({
+            label: category,
+            value: category,
+          }))}
+          style={styles.pickerSelectStyles}
+          placeholder={{ label: 'Select a category', value: null, color: colors.Text, }}
+          useNativeAndroidPickerStyle={false} // optional, for styling on Android
+          Icon={() => {
+            return (
+              <Image
+                source={require('../images/downArrow.png')}
+                style={{
+                  width: scale(10),
+                  height: scale(10),
+                  marginTop: scale(20),
+                }}
+                tintColor={colors.Primary}
+                resizeMode="contain"
+              />
+            );
+          }}
+        />
+      </View>
+
       {loading ? (
         <Text style={styles.message}>Loading...</Text>
       ) : error ? (
@@ -94,10 +120,28 @@ const ProductListScreen = ({ navigation }: { navigation: any }) => {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.Background },
-  search: { padding: 10, borderBottomWidth: 1, borderColor: colors.Grey, backgroundColor: colors.white },
+  search: {
+    paddingVertical: 12, // top & bottom padding
+    paddingHorizontal: 15, // left & right padding
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 10,
+    borderWidth: 1, // full border
+    borderColor: colors.Grey, // border color
+    borderRadius: 8, // optional: rounded edges
+    backgroundColor: colors.white,
+    fontSize: 16, // make text cleaner
+    color: colors.Text, // if you have a black color
+  },
   picker: { height: 50, width: '100%' },
   message: { textAlign: 'center', marginTop: 20, color: colors.Text },
   error: { textAlign: 'center', marginTop: 20, color: colors.Error },
+  innerBar: {
+    width: '90%',
+    height: verticalScale(60),
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
 });
 
 export default ProductListScreen;
