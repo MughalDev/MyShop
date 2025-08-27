@@ -4,8 +4,8 @@ import { colors } from './color';
  
 export const pickerSelectStyles = StyleSheet.create({
   inputIOS: {
-    fontSize: responsiveFont(6),
-    color: colors.white,
+    fontSize: responsiveFont(10),
+    color: colors.Text,
     fontWeight: '300',
     //marginTop: 6,
     //justifyContent:"center",
@@ -14,18 +14,18 @@ export const pickerSelectStyles = StyleSheet.create({
     borderRadius: 5,
   },
   placeholder: {
-    color: colors.white,
-    fontSize: responsiveFont(4),
+    color: colors.Text,
+    fontSize: responsiveFont(14),
   },
   inputAndroid: {
     fontSize: responsiveFont(4),
-    color: colors.white,
+    color: colors.Text,
     // marginTop: -5,
-    //paddingHorizontal: -10,
-    //backgroundColor: 'red',
-    //borderRadius: 5,
+    // paddingHorizontal: -10,
+    // backgroundColor: 'red',
+    // borderRadius: 5,
   },
   modalViewBottom: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.Background,
   },
 });

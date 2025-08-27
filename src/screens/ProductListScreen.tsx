@@ -70,7 +70,7 @@ const ProductListScreen = ({ navigation }: { navigation: any }) => {
             label: category,
             value: category,
           }))}
-          style={styles.pickerSelectStyles}
+          // style={pickerSelectStyles}
           placeholder={{ label: 'Select a category', value: null, color: colors.Text, }}
           useNativeAndroidPickerStyle={false} // optional, for styling on Android
           Icon={() => {
