@@ -1,77 +1,74 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# My Shop
+Project Overview
+This is a cross-platform e-commerce app built with bare React Native and TypeScript. It fetches products from a mock API, allows searching, filtering by category, viewing details, adding to favorites, managing a shopping cart, and viewing favorites. It runs on iOS, Android with responsive design.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+# Technologies used:
 
-## Step 1: Start the Metro Server
+React Native
+TypeScript
+React Navigation
+Redux Toolkit for state
+AsyncStorage for persistence
+Jest for testing
+react-native-image-placeholder for lazy loading
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+# Key features:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Product list with search, category filtering, loading/empty states, pull-to-refresh
+Product details with favorite toggle
+Favorites screen with real-time updates
+Shopping cart with add/remove functionality
+Deep linking
+Responsive grid (1-2 columns)
+Accessibility support
+Offline product caching
+Error handling with retry
 
-```bash
-# using npm
-npm start
+Project Setup Instructions
+text# Install dependencies
+npm install
 
-# OR using Yarn
-yarn start
-```
+# Run on iOS
+npx react-native run-ios
 
-## Step 2: Start your Application
+# Run on Android
+npx react-native run-android
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+# State Management: Redux Toolkit – Provides slices for products, favorites, and cart, with async thunks for API/persistence and middleware for saving. Chosen for structured state management.
+# Component Architecture: Reusable ProductCard component with memoization.
+# Data Persistence: AsyncStorage for favorites and cached products – Ensures offline access and cross-platform persistence.
+# Performance: React.memo for ProductCard, lazy-loaded images with placeholders.
+# Security: No sensitive data; API is public mock.
+# Testing: Unit tests for components and slice logic.
 
-### For Android
+Screenshots/GIFs
+(Attach your own screenshots here, e.g.:
 
-```bash
-# using npm
-npm run android
+List Screen: products, search
+Details Screen: details and toggle
+Cart Screen: cart items
+Favorites Screen: favorited items
+Deep Link: Demo URL navigation)
 
-# OR using Yarn
-yarn android
-```
+Submission Checklist
 
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
+✅ Full source code with dependencies
+✅ README with instructions
+✅ Technical decisions documented
+✅ TypeScript used
+✅ 2+ unit tests passing
+✅ Cross-platform (iOS/Android)
+✅ Favorites persist
+✅ Search implemented
+✅ Deep links working
+✅ Production-ready quality
+✅ Shopping cart functionality
+✅ Offline support
+✅ Performance optimizations
+✅ Error handling
+✅ Pull-to-refresh
 - [React Native Website](https://reactnative.dev) - learn more about React Native.
 - [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
